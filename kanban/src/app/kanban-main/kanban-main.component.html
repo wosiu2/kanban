@@ -1,0 +1,28 @@
+<div class="example-container">
+    <h2>Open</h2>
+
+    <div cdkDropList #openList="cdkDropList" [cdkDropListData]="open" [cdkDropListConnectedTo]="[approvedList,processedList,closedList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of open" cdkDrag>{{item.text}}</div>
+    </div>
+</div>
+<div class="example-container">
+    <h2>Approved</h2>
+
+    <div cdkDropList #approvedList="cdkDropList" [cdkDropListData]="approved" [cdkDropListConnectedTo]="[openList,processedList,closedList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of approved" cdkDrag>{{item.text}}</div>
+    </div>
+</div>
+<div class="example-container">
+    <h2>Processed</h2>
+
+    <div cdkDropList #processedList="cdkDropList" [cdkDropListData]="processed" [cdkDropListConnectedTo]="[openList,approvedList,closedList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of processed" cdkDrag>{{item.text}}</div>
+    </div>
+</div>
+<div class="example-container">
+    <h2>Closed</h2>
+
+    <div cdkDropList #closedList="cdkDropList" [cdkDropListData]="closed" [cdkDropListConnectedTo]="[openList,approvedList,processedList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of closed" cdkDrag>{{item.text}}</div>
+    </div>
+</div>
